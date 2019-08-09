@@ -40,10 +40,10 @@ class IntlCurrencyInput extends Component {
     this.setMaskedValue(value)
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (
-	nextProps.currency !== this.props.currency || 
-	nextProps.value !== this.props.value
+      nextProps.currency !== this.props.currency || 
+      nextProps.value !== this.props.value
     ) {
       const value = nextProps.value !== this.props.value ? nextProps.value : this.state.maskedValue
       const [, maskedValue] = this.calculateValues(value, nextProps.config, nextProps.currency)
@@ -141,7 +141,7 @@ class IntlCurrencyInput extends Component {
   allowedProps() {
     const allowedProps = { ...this.props }
 
-		delete allowedProps.defaultValue
+    delete allowedProps.defaultValue
     delete allowedProps.currency
     delete allowedProps.config
     delete allowedProps.autoSelect
@@ -156,8 +156,8 @@ class IntlCurrencyInput extends Component {
   }
 
   render() {
-    const { inputComponent } = this.props;
-    const InputComponent = inputComponent;
+    const { inputcomponent } = this.props;
+    const InputComponent = inputcomponent;
     return (
       <InputComponent {...this.allowedProps()}
         value={this.handleValue()}
@@ -187,7 +187,7 @@ IntlCurrencyInput.propTypes = {
 }
 
 IntlCurrencyInput.defaultProps = {
-  inputComponent: "input",
+  inputcomponent: "input",
   currency: "USD",
   config: defaultConfig,
   autoFocus: false,

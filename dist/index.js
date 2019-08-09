@@ -78,8 +78,8 @@ var IntlCurrencyInput = function (_Component) {
       this.setMaskedValue(value);
     }
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(nextProps) {
       if (nextProps.currency !== this.props.currency || nextProps.value !== this.props.value) {
         var value = nextProps.value !== this.props.value ? nextProps.value : this.state.maskedValue;
 
@@ -223,9 +223,9 @@ var IntlCurrencyInput = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var inputComponent = this.props.inputComponent;
+      var inputcomponent = this.props.inputcomponent;
 
-      var InputComponent = inputComponent;
+      var InputComponent = inputcomponent;
       return _react2.default.createElement(InputComponent, _extends({}, this.allowedProps(), {
         value: this.handleValue(),
         ref: function ref(input) {
@@ -266,7 +266,7 @@ IntlCurrencyInput.propTypes = {
 };
 
 IntlCurrencyInput.defaultProps = {
-  inputComponent: "input",
+  inputcomponent: "input",
   currency: "USD",
   config: defaultConfig,
   autoFocus: false,
